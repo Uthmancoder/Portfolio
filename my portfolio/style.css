@@ -1,0 +1,93 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: rgb(45, 45, 45);
+}
+.morevert{
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    background-color:black;
+    opacity: 0.4;
+    color: white;
+    padding: 6px 0 0 0;
+    border: none;
+
+}
+.reorder{
+    font-size: 40px;
+}
+.h1{
+    font-size: 80px;
+    color: white;
+    font-weight: bolder;
+    font-family: Arial, Helvetica, sans-serif;
+    animation-duration: 2s;
+    animation-delay: 0.3s;
+    width: 100%;
+}
+.screen2{
+    width: 20%;
+}
+.button {
+    --color: #00A97F;
+    padding: 0.8em 1.7em;
+    background-color: transparent;
+    border-radius: .3em;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: .5s;
+    font-weight: 400;
+    font-size: 17px;
+    border: 1px solid;
+    font-family: inherit;
+    text-transform: uppercase;
+    color: var(--color);
+    z-index: 1;
+   }
+   
+   .button::before, .button::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 50px;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    border-radius: 50%;
+    z-index: -1;
+    background-color: var(--color);
+    transition: 1s ease;
+   }
+   
+   .button::before {
+    top: -1em;
+    left: -1em;
+   }
+   
+   .button::after {
+    left: calc(100% + 1em);
+    top: calc(100% + 1em);
+   }
+   
+   .button:hover::before, .button:hover::after {
+    height: 410px;
+    width: 410px;
+   }
+   
+   .button:hover {
+    color: rgb(10, 25, 30);
+   }
+   
+   .button:active {
+    filter: brightness(.8);
+   }
+   .section1{
+    width: 100%;
+    height: 100vh;
+    position: relative;
+   }
+
+   
