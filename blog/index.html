@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.css" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Document</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    html,
+    body {
+        width: 100%;
+        height: 100%;
+    }
+
+    body {
+        background-image: linear-gradient(to top right, #7878bd, rgba(186, 186, 202, 0.75), rgba(186, 186, 202, 0.75));
+        background-size: 400% 400%;
+    }
+
+
+    .card {
+        width: 30%;
+        height: 497px;
+        background: #F4F6FB;
+        border-radius: 5px;
+        border: 1px solid white;
+        box-shadow: 10px 10px 64px 0px rgba(71, 71, 72, 0.75);
+        -webkit-box-shadow: 10px 10px 64px 0px rgba(186, 186, 202, 0.75);
+        -moz-box-shadow: 10px 10px 64px 0px rgba(208, 208, 231, 0.75);
+        margin: 3% auto;
+    }
+
+    .form {
+        padding: 25px;
+    }
+
+    .card_header {
+        display: flex;
+        align-items: center;
+    }
+
+    .card svg {
+        color: #7878bd;
+        margin-bottom: 20px;
+        margin-right: 5px;
+    }
+
+    .form_heading {
+        padding-bottom: 20px;
+        font-size: 21px;
+        color: #7878bd;
+    }
+
+    .field {
+        padding-bottom: 10px;
+    }
+
+    .input {
+        border-radius: 5px;
+        background-color: #e9e9f7;
+        padding: 5px;
+        width: 100%;
+        height: 33px;
+        color: #7a7ab3;
+        border: 1px solid #dadaf7
+    }
+
+    .input:focus-visible {
+        outline: 1px solid #aeaed6;
+    }
+
+    .input::placeholder {
+        color: #bcbcdf;
+    }
+
+    label {
+        color: #B2BAC8;
+        font-size: 14px;
+        display: block;
+        padding-bottom: 4px;
+    }
+
+    .btn {
+        width: 140px;
+        height: 50px;
+        background-color: #7a7ab3;
+        color: #fff;
+        border-radius: 50px;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        position: relative;
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+        overflow: hidden;
+        margin: 5% 30%;
+    }
+
+    .btn span {
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        transition: top 0.5s;
+    }
+
+    .btn-text-one {
+        position: absolute;
+        width: 100%;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+    }
+
+    .btn-text-two {
+        position: absolute;
+        width: 100%;
+        top: 150%;
+        left: 0;
+        transform: translateY(-50%);
+    }
+
+    .btn:hover .btn-text-one {
+        top: -100%;
+    }
+
+    .btn:hover .btn-text-two {
+        top: 50%;
+    }
+    .dflex{
+        display: flex;
+        align-items: center;
+    }
+</style>
+
+<body>
+    <div class="form card">
+        <div class="card_header">
+            <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0 0h24v24H0z" fill="none"></path>
+                <path
+                    d="M4 15h2v5h12V4H6v5H4V3a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-6zm6-4V8l5 4-5 4v-3H2v-2h8z"
+                    fill="currentColor"></path>
+            </svg>
+
+            <h1 class="form_heading">Sign Up</h1>
+        </div>
+        <div class="field">
+            <label for="username">Username</label>
+            <input id="username1" placeholder="Username" type="text" name="username" class="input">
+        </div>
+        <div class="field">
+            <label for="Name">Name</label>
+            <input id="text1" placeholder="Name" type="text" name="user_password" class="input">
+        </div>
+        <div class="field">
+            <label for="Name">Phone Num</label>
+            <input id="text2" placeholder="Phone Num" type="number" name="user_password" class="input">
+        </div>
+        <div class="field">
+            <label for="password">Password</label>
+            <input id="password1" placeholder="Password" type="password" name="user_password" class="input">
+        </div>
+        <div class="field">
+            <label for="Confirm Password">Confirm Password</label>
+            <input id="password2" placeholder="Confirm Password" type="password" name="user_password" class="input">
+        </div>
+        <div class="field">
+       <div class="dflex">
+        <button class="btn" onclick="signup(event)">
+            <span class="btn-text-one">Submit</span>
+            <span class="btn-text-two">sign up</span>
+        </button>
+    </div>
+    <div class="field">
+        <button class="btn" onclick="swgl(event)">
+            <span class="btn-text-one">sign with Google</span>
+            <span class="btn-text-two">sign up</span>
+        </button>
+    </div>
+       </div>
+    </div>
+</body>
+
+</html>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.js"></script>
+<script>
+    let input1 = document.getElementById("username1")
+    let input2 = document.getElementById("text1")
+    let input3 = document.getElementById("password1")
+    let password = document.getElementById("password2")
+    let input4 = document.getElementById("text2")
+    let num = 8
+    let checked = JSON.parse(localStorage.getItem("userdata"))
+    console.log(checked);
+
+    function signup(dan) {
+     let userdata  =
+            {
+                username: document.getElementById("username1").value,
+                name: input2.value,
+                phone_num: input4.value,
+                password: input3.value,
+                confirm_password: password.value
+            }
+        if (document.getElementById("password1").value != document.getElementById("password2").value) {
+            alert("password does not match")
+        } else {
+            setTimeout(() => {
+                alert("Signup succesfully")
+            }, 7000);
+            let loading = setInterval(() => {
+                num--;
+                dan.target.innerHTML = `
+            <svg aria-hidden="true" role="status" class="inline w-4 h-4 mr-3 text-white animate-spin" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z" fill="#E5E7EB"/>
+                <path d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z" fill="currentColor"/>
+                </svg>
+                Loading...
+                        `
+                if (num == 0) {
+                    clearInterval(loading)
+                    dan.target.innerHTML = "Sign up"
+                }
+            }, 1000)
+
+            setTimeout(() => {
+                window.location.href = "login.html"
+            }, 7000);
+
+        }
+
+        if (checked == null) {
+            checked = [];
+            checked.push(userdata);
+            localStorage.setItem("userdata", JSON.stringify(checked))
+            localStorage.setItem("name", JSON.stringify(checked.name))
+        } else {
+            checked.push(userdata)
+            localStorage.setItem("userdata", JSON.stringify(checked)
+            )
+        }
+
+
+    }
+    const firebaseConfig = {
+        apiKey: "AIzaSyAxGLPD1egTzA5lxtXyQ1NAj_dJlCYHNDk",
+        authDomain: "my-first-project-672b2.firebaseapp.com",
+        projectId: "my-first-project-672b2",
+        storageBucket: "my-first-project-672b2.appspot.com",
+        messagingSenderId: "839261620607",
+        appId: "1:839261620607:web:8b8757d2ee67d81f06324a",
+        measurementId: "G-XVNTZ32JSN"
+    };
+    const app = firebase.initializeApp(firebaseConfig);
+    var provider = new firebase.auth.GoogleAuthProvider();
+    
+    
+
+    function swgl() {
+        // ev.preventDefault();
+        firebase.auth().signInWithPopup(provider)
+            .then((result) => {
+                var credential = result.credential;
+                console.log("Success");
+                // This gives you a Google Access Token. You can use it to access the Google API.
+                var token = credential.accessToken;
+                // The signed-in user info.
+                var user = result.user;
+                // IdP data available in result.additionalUserInfo.profile.
+                // ...
+            }).catch((error) => {
+                // Handle Errors here.
+                var errorCode = error.code;
+                var errorMessage = error.message;
+                // The email of the user's account used.
+                var email = error.email;
+                // The firebase.auth.AuthCredential type that was used.
+                var credential = error.credential;
+                console.log(error);
+            });
+    }
+</script>
