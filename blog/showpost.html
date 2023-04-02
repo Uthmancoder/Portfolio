@@ -61,6 +61,11 @@
   .commentsection{
     display: none;
   }
+  @media (max-width :800px) {
+    .image-div{
+      width : 100%;
+    }
+  }
 </style>
 
 <body>
@@ -174,13 +179,13 @@ if (commentArray == null) {
    commentArray = []
 }
 function postcomment(index) {
-  const commenttopost = document.getElementById(`commentinp${index}`);
-  if (commenttopost.value !== "") {
-    commentArray.push(commenttopost.value);
+  let commentpost = document.getElementById("commentinp");
+  if (commentpost.value !== "") {
+    commentArray.push(commentpost.value);
     const commentBtn = document.getElementById(`commment${index}`);
     const commentsec = document.getElementById(`commentsection${index}`);
      document.getElementById(`commentsection${index}`).style.display = "none"
-     commenttopost.value = ""
+     commentpost.value = ""
      commentBtn.style.display = "block"
      localStorage.setItem("comments", JSON.stringify(commentArray))
   } else {

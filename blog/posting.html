@@ -17,8 +17,13 @@
 <style>
     section {
         width: 100%;
-        height: 100%;
-        background-color: whitesmoke;
+        height: 100vh;
+        background-image: url(https://t3.ftcdn.net/jpg/03/91/46/10/360_F_391461057_5P0BOWl4lY442Zoo9rzEeJU0S2c1WDZR.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        color: white;
+        text-align: center;
+        padding: 15px;
     }
 
     .welc {
@@ -27,7 +32,7 @@
     }
 
     main {
-        background-color: whitesmoke;
+        /* background-color: whitesmoke; */
         text-align: center;
     }
 
@@ -37,6 +42,11 @@
         padding: 10px;
     }
 
+    #screen{
+        display: none;
+        width : 100%;
+        font-size: 20px;
+    }
     .cent {
         display: flex;
         align-items: center;
@@ -55,26 +65,44 @@
         background-color: black;
         color: white;
     }
+    .choseimg{
+        width: 100%;
+        height: 150px;
+        display: none;
+    }
+    textarea, input{
+        background-color: transparent;
+        color: white;
+        border: 5px inset;
+    }
+    @media (max-width : 800px) {
+        .hunmd{
+            width: 100%;
+        }
+        .choseimg{
+            width: 100%;
+        }
+        .hunmd{
+            display: block;
+        }
+    }
 </style>
 
 <body>
     <section>
-        <h1 class="p-5 welc" id="screen">
-            Hey Adewale Welcome To Uthman's blog
-        </h1>
+        <h1 class="welc" id="screen"> </h1>
         <main class="container ">
             <h1>Post a blog</h1>
             <div class="w-75 mx-auto d-grid">
-                <textarea class="my-2" name="headline" id="head" cols="30" rows="1" placeholder="Headline"></textarea>
-                <div class="row my-2">
-                    <div class="col-12 col-sm-6 col-md-6">
-                        <textarea name="opening" id="opening" cols="50" rows="5" placeholder="Opening"></textarea>
+                <textarea class="my-2 w-100" name="headline" id="head" cols="30" rows="1" placeholder="Headline"></textarea>
+                <div class="row my-2 w-100">
+                    <div class="col-12  col-md-12 col-lg-6" >
+                        <textarea class="w-100" name="opening" id="opening" cols="50" rows="5" placeholder="Opening"></textarea>
                     </div>
-                    <div class="col-12 col-sm-6 col-md-6">
+                    <div class="col-12 hunmd col-md-12 col-lg-6" >
                         <div class=" cent w-100 h-100">
-                            <label for="my-file-input" class="sr-only">Choose file</label>
-                            <input type="file"  onchange="pickfile(event)" class="choosefile">
-                            <img class=" img-fluid" src="" id="img" alt="">
+                            <input type="file"  onchange="pickfile(event)" id="filetoselect" class="choosefile">
+                            <img class=" img-fluid choseimg" src="" id="img" alt="">
 
                         </div>
                     </div>
@@ -82,7 +110,7 @@
                 <textarea class="my-3" name="headline" id="sub-head" cols="30" rows="1"
                     placeholder="Sub-Head"></textarea>
                 <textarea name="content" id="content" cols="30" rows="5" placeholder="Post Content"></textarea>
-                <button class="btn btn-primary rounded-5 my-2 w-25 mx-auto">Post</button>
+                <button class="btn btn-secondary rounded-5 my-2 w-25 mx-auto">Post</button>
             </div>
         </main>
     </section>
@@ -96,19 +124,26 @@
     let postcontent = document.getElementById("content");
     let button = document.querySelector(".btn");
     let postArray = JSON.parse(localStorage.getItem("post"))
+    let getuser = JSON.parse(localStorage.getItem("username"))
+    let screen = document.getElementById("screen")
     console.log(postArray);
+
+    document.getElementById("screen").innerHTML = `Hey ${getuser} welcome to uthman's blog`
     if (postArray == null) {
         postArray = []
     }
 
     let reader = new FileReader();
     let postimge = document.getElementById("img")
+    let imagechosen = document.querySelector(".choseimg")
     function pickfile(ev) {
         let file = ev.target.files[0];
         console.log(file);
         reader.onload = (event) => {
             let imageData = event.target.result;
             postimge.src = imageData;
+            document.getElementById("filetoselect").style.display = "none"
+            imagechosen.style.display = "block"
         };
         if (file) {
             reader.readAsDataURL(file);
