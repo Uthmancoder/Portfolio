@@ -20,42 +20,44 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
 </head>
 <style>
-   
-    .secti{
+    .secti {
         position: relative;
         width: 100%;
         height: 100%;
     }
-
+    .open{
+        display: none;
+    }
 </style>
 
 <body>
     <main class="main">
         <nav id="nav">
             <div class="container-fluid">
-              <div class="row d-flex align-items-center p-3">
-                <h2 class="fs-2 fw-bolder col-6 col-md-3 black" id="black">Uthman's<span class="text-danger">blog</span></h2>
-          
-                <div class="col-5 d-none d-sm-block  d-flex align-items-center justify-content-end mt-2">
-                  <a href="#products" class="fs-5 fw-bolder pp black" id="products-link">Products</a>
-                  <a href="prices" class="fs-5 fw-bolder pp mx-4 black" id="prices-link">Prices</a>
-                  <a href="#supports" class="fs-5 fw-bolder pp black" id="supports-link">Supports</a>
-                  <a href="#promote" class="fs-5 fw-bolder pp black mx-4" id="resources-link">Resources</a>
+                <div class="row d-flex align-items-center p-3">
+                    <h2 class="fs-2 fw-bolder col-6 col-md-3 black" id="black">Uthman's<span
+                            class="text-danger">blog</span></h2>
+
+                    <div class="col-5 d-none d-sm-block  d-flex align-items-center justify-content-end mt-2">
+                        <a href="#products" class="fs-5 fw-bolder pp black" id="products-link">Products</a>
+                        <a href="#write" class="fs-5 fw-bolder pp mx-4 black" id="prices-link">Prices</a>
+                        <a href="#supports" class="fs-5 fw-bolder pp black" id="supports-link">Supports</a>
+                        <a href="#promote" class="fs-5 fw-bolder pp black mx-4" id="resources-link">Resources</a>
+                    </div>
+
+                    <div class="col-4  d-none d-sm-block d-flex align-items-center justify-content-end">
+                        <select class="select" name="lang" id="lang">
+                            <option value="English"><i class="fa-regular fa-globe"></i> English</option>
+                            <option value="Portugese">Portugese</option>
+                            <option value="Espanol">Espanol</option>
+                        </select>
+                        <button onclick="loguser()" class="btn btn-secondary mx-3">Login</button>
+                        <button onclick="signup()" class="btn btn-danger">Sign Up</button>
+                    </div>
                 </div>
-          
-                <div class="col-4  d-none d-sm-block d-flex align-items-center justify-content-end">
-                  <select class="select" name="lang" id="lang">
-                    <option value="English"><i class="fa-regular fa-globe"></i> English</option>
-                    <option value="Portugese">Portugese</option>
-                    <option value="Espanol">Espanol</option>
-                  </select>
-                  <button onclick="loguser()" class="btn btn-secondary mx-3">Login</button>
-                  <button onclick="signup()" class="btn btn-danger">Sign Up</button>
-                </div>
-              </div>
             </div>
-          </nav>
-          
+        </nav>
+
         <div>
             <h1 class="text-light  fw-bolder mx-auto text-center h1">Blogging</h1>
             <p class="text-light fs-2 fw-bold w-50 mx-auto text-center mt-5">Check out the pros and cons of blogging,
@@ -71,9 +73,10 @@
                     <button onclick="cancelmodal()" class="cancel">&times;</button>
                     <span class="subtitle">Create a free account with your email.</span>
                     <div class="form-container">
-                        <input type="text" class="input" placeholder="Full Name">
-                        <input id="email" type="email" class="input " placeholder="Email">
-                        <input id="password" type="password" class="input" placeholder="Password">
+                        <input type="text" class="input" placeholder="Full Name" required>
+                        <input id="email" type="email" class="input " placeholder="Email" required>
+                        <input id="password" type="password" class="input" placeholder="Password" required>
+                        
                     </div>
                     <button onclick="signuser(event)" class="button">Sign up</button>
                 </form>
@@ -89,9 +92,13 @@
                     <button onclick="cancelmodal2()" class="cancel">&times;</button>
                     <span class="subtitle">Log in to your account</span>
                     <div class="form-container">
-                        <input id="username" type="text" class="input" placeholder="Username">
-                        <input id="logemail" type="email" class="input " placeholder="Email">
-                        <input id="logpassword" type="password" class="input" placeholder="Password">
+                        <input id="logemail" type="email" class="input " placeholder="Email" required>
+                        <div class="d-flex align-items-center">
+                            <input id="logpassword" type="password" class="input" placeholder="Password" required>
+                            <button  onclick="PasswordVisibility(event)" class="mx-2 close"><i class="fa-regular fa-eye-slash"></i></button>
+                            <button onclick="textVisibility(event)" class="open"><i class="fa-solid fa-eye"></i></button>
+                          </div>
+                     
                     </div>
                     <button onclick="login(event)" class="button">Log In</button>
                 </form>
@@ -104,10 +111,10 @@
                     <div class="row d-flex align-items-center p-3">
                         <h2 class=" fs-2 fw-bolder col-3 black" id="black">Uthman's<span class="text-danger">blog</span>
                         </h2>
-    
+
                         <div class="col-5 d-flex align-items-center mt-2">
                             <a href="#products" class="fs-5 fw-bolder pp black" id="products-link">Products</a>
-                            <a href="prices" class="fs-5 fw-bolder pp mx-4 black" id="prices-link">Prices</a>
+                            <a href="#write" class="fs-5 fw-bolder pp mx-4 black" id="prices-link">Prices</a>
                             <a href="#supports" class="fs-5 fw-bolder pp black" id="supports-link">Supports</a>
                             <a href="#promote" class="fs-5 fw-bolder pp black mx-4" id="resources-link">Resources</a>
                         </div>
@@ -118,7 +125,7 @@
                                 <option value="Portugese">Portugese</option>
                                 <option value="Espanol">Espanol</option>
                             </select>
-    
+
                             <button onclick="loguser()" class="btn btn-secondary mx-3">Login</button>
 
                             <button onclick="signup()" class="btn btn-danger">Sign Up</button>
@@ -291,84 +298,93 @@
                 blog,
                 let’s jump into the next section to figure out the ways to gain revenue from your blog.</p>
 
-                <div id="supports">
-                    <div class="border blog p-4 rounded-2 text-start mx-auto my-3 bg-secondary">
-                        <h1 class="w-100 bg-light fs-1 fw-bold p-2">How to Make Money Blogging</h1>
-                        <div class=" blog rounded-2 text-start  my-3">
-                            <p><a class="text-light dak" href="#conduct">1. Conduct courses and workshops</a></p>
-                            <p><a class="text-light dak" href="#create">2. Create sponsored posts</a></p>
-                            <p> <a class="text-light dak" href="#host">3.Host a paid webinar or training</a></p>
-                            <p> <a class="text-light dak" href="#consider">4. Consider affiliate marketing</a></p>
-                            <p><a class="text-light dak" href="#book">5. Write bookss</a></p>
-                        </div>
+            <div id="supports">
+                <div class="border blog p-4 rounded-2 text-start mx-auto my-3 bg-secondary">
+                    <h1 class="w-100 bg-light fs-1 fw-bold p-2">How to Make Money Blogging</h1>
+                    <div class=" blog rounded-2 text-start  my-3">
+                        <p><a class="text-light dak" href="#conduct">1. Conduct courses and workshops</a></p>
+                        <p><a class="text-light dak" href="#create">2. Create sponsored posts</a></p>
+                        <p> <a class="text-light dak" href="#host">3.Host a paid webinar or training</a></p>
+                        <p> <a class="text-light dak" href="#consider">4. Consider affiliate marketing</a></p>
+                        <p><a class="text-light dak" href="#book">5. Write bookss</a></p>
                     </div>
-                    <p class="blog mx-auto text-secondary  my-5">The popularity of your blog provides you with new opportunities
-                        to
-                        make money. You can see several effective ways to earn some extra costs below.</p>
-                    <h1 id="conduct" class="fs-2 blog mx-auto text-dark fw-bolder">Conduct courses and workshops</h1>
-                    <p class="blog mx-auto text-secondary  my-5">One of the greatest ways to make money online is to create
-                        courses.
-                        Modern people look for new skills and knowledge that help their personal and career growth. However, due
-                        to
-                        their often heavy workload, they don’t have a lot of time. That’s why it’s always a problem to go
-                        somewhere
-                        to directly participate in different events.</p>
-                    <p class="blog mx-auto text-secondary  my-3"><span class="text-dark fw-bold">Online courses </span> and
-                        workshops come to the rescue and help both participants and bloggers. As a blogger, you
-                        can connect with your audience through different video platforms and share a topic you specialize in,
-                        and
-                        your participants can obtain the necessary knowledge.</p>
-                    <p class="blog mx-auto text-secondary  my-5">Let’s take Gabrielle Bernstein, for example. The spiritual
-                        leader
-                        offers readers to buy her courses on relationships, business, and meditation. She earns money by sharing
-                        her
-                        experience and valuable hands-on tips.</p>
                 </div>
+                <p class="blog mx-auto text-secondary  my-5">The popularity of your blog provides you with new
+                    opportunities
+                    to
+                    make money. You can see several effective ways to earn some extra costs below.</p>
+                <h1 id="conduct" class="fs-2 blog mx-auto text-dark fw-bolder">Conduct courses and workshops</h1>
+                <p class="blog mx-auto text-secondary  my-5">One of the greatest ways to make money online is to create
+                    courses.
+                    Modern people look for new skills and knowledge that help their personal and career growth. However,
+                    due
+                    to
+                    their often heavy workload, they don’t have a lot of time. That’s why it’s always a problem to go
+                    somewhere
+                    to directly participate in different events.</p>
+                <p class="blog mx-auto text-secondary  my-3"><span class="text-dark fw-bold">Online courses </span> and
+                    workshops come to the rescue and help both participants and bloggers. As a blogger, you
+                    can connect with your audience through different video platforms and share a topic you specialize
+                    in,
+                    and
+                    your participants can obtain the necessary knowledge.</p>
+                <p class="blog mx-auto text-secondary  my-5">Let’s take Gabrielle Bernstein, for example. The spiritual
+                    leader
+                    offers readers to buy her courses on relationships, business, and meditation. She earns money by
+                    sharing
+                    her
+                    experience and valuable hands-on tips.</p>
+            </div>
 
-          <div id="products">
-            <h1 id="conduct" class="fs-2 blog mx-auto text-dark fw-bolder">Products and services</h1>
-            <img class="blog  img text-center img-fluid  h-100"
-            src="https://www.spcdn.org/images/blogging-gabby-bernstein.png" alt="">
+            <div id="products">
+                <h1 id="conduct" class="fs-2 blog mx-auto text-dark fw-bolder">Products and services</h1>
+                <img class="blog  img text-center img-fluid  h-100"
+                    src="https://www.spcdn.org/images/blogging-gabby-bernstein.png" alt="">
 
-        <div id="create">
-            <h1 id="conduct" class="fs-2 blog mx-auto text-dark fw-bolder">Conduct courses and workshops</h1>
-            <p class="blog mx-auto text-secondary  my-5">Bloggers often write sponsored posts on social media
-                platforms
-                or their websites to get paid by different
-                brands. They help draw followers’ attention to a brand or individual promoted. Opinion leaders
-                create
-                blog posts, videos, or Instagram Stories to bring new customers to a company.</p>
-            <p class="blog mx-auto text-secondary  my-3">For example, let’s take Madelaine Petsch and Bliss. In the
-                Instagram post below, the actress promotes the brand’s sunscreen.</p>
-            <img class="blog  img text-center img-fluid  h-100"
-                src="https://www.spcdn.org/images/blogging-madelame.png" alt="">
+                <div id="create">
+                    <h1 id="conduct" class="fs-2 blog mx-auto text-dark fw-bolder">Conduct courses and workshops</h1>
+                    <p class="blog mx-auto text-secondary  my-5">Bloggers often write sponsored posts on social media
+                        platforms
+                        or their websites to get paid by different
+                        brands. They help draw followers’ attention to a brand or individual promoted. Opinion leaders
+                        create
+                        blog posts, videos, or Instagram Stories to bring new customers to a company.</p>
+                    <p class="blog mx-auto text-secondary  my-3">For example, let’s take Madelaine Petsch and Bliss. In
+                        the
+                        Instagram post below, the actress promotes the brand’s sunscreen.</p>
+                    <img class="blog  img text-center img-fluid  h-100"
+                        src="https://www.spcdn.org/images/blogging-madelame.png" alt="">
 
-            <h1 id="conduct" class="fs-2 blog mx-auto text-dark fw-bolder">Host a paid webinar or training</h1>
-            <p class="blog mx-auto text-secondary  my-5">A lot of companies and individuals start with free
-                webinars.
-                However, if you are an expert in your industry, you can make money on your expertise by organizing
-                paid
-                training or webinars. To run webinars smoothly, pay attention to details and check your info for
-                accuracy. Small errors and typos are unacceptable. Remember to make your training special and unique
-                so
-                that it can be useful and fresh for participants. If it shows good results, consider making a
-                series.
-            </p>
-            <p class="blog mx-auto text-secondary  my-3">For example, Jack Kornfield, an author and Buddist
-                practitioner, conducts a seven-week online training
-                about the power of awareness.</p>
+                    <h1 id="conduct" class="fs-2 blog mx-auto text-dark fw-bolder">Host a paid webinar or training</h1>
+                    <p class="blog mx-auto text-secondary  my-5">A lot of companies and individuals start with free
+                        webinars.
+                        However, if you are an expert in your industry, you can make money on your expertise by
+                        organizing
+                        paid
+                        training or webinars. To run webinars smoothly, pay attention to details and check your info for
+                        accuracy. Small errors and typos are unacceptable. Remember to make your training special and
+                        unique
+                        so
+                        that it can be useful and fresh for participants. If it shows good results, consider making a
+                        series.
+                    </p>
+                    <p class="blog mx-auto text-secondary  my-3">For example, Jack Kornfield, an author and Buddist
+                        practitioner, conducts a seven-week online training
+                        about the power of awareness.</p>
 
-            <img class="blog  img text-center img-fluid  h-100"
-                src="https://www.spcdn.org/images/blogging-jack-kornfield.png" alt="">
-            <h1 id="conduct" class="fs-2 blog mx-auto text-dark fw-bolder">Consider affiliate marketing</h1>
-            <p class="blog mx-auto text-secondary  my-5">One more secondary source of income is affiliate marketing.
-                By
-                recommending digital products, services,
-                and other products of other companies on your blog, you can earn a good commission. This way, you
-                get
-                paid every time you promote a company.</p>
-        </div>
-          </div>
+                    <img class="blog  img text-center img-fluid  h-100"
+                        src="https://www.spcdn.org/images/blogging-jack-kornfield.png" alt="">
+                    <h1 id="conduct" class="fs-2 blog mx-auto text-dark fw-bolder">Consider affiliate marketing</h1>
+                    <p class="blog mx-auto text-secondary  my-5">One more secondary source of income is affiliate
+                        marketing.
+                        By
+                        recommending digital products, services,
+                        and other products of other companies on your blog, you can earn a good commission. This way,
+                        you
+                        get
+                        paid every time you promote a company.</p>
+                </div>
+            </div>
 
             <div id="write">
                 <h1 id="conduct" class="fs-2 blog mx-auto text-dark fw-bolder">Write books</h1>

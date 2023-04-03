@@ -10,6 +10,39 @@ window.addEventListener("scroll", function () {
         document.getElementById("resources-link").style.color = "white";
     }
 });
+const passwordInput = document.getElementById("logpassword");
+const openBtn = document.querySelector(".open");
+const closeBtn = document.querySelector(".close");
+
+function PasswordVisibility(ev) {
+    ev.preventDefault()
+    passwordInput.type = "text";
+    openBtn.style.display = "block";
+    closeBtn.style.display = "none";
+}
+function textVisibility(ev) {
+    ev.preventDefault()
+    passwordInput.type = "password";
+    closeBtn.style.display = "block";
+    openBtn.style.display = "none";
+}
+const signpass = document.getElementById("password");
+const openBtn2 = document.querySelector(".open");
+const closeBtn2 = document.querySelector(".close");
+
+function PasswordVisibility(ev) {
+    ev.preventDefault()
+    passwordInput.type = "text";
+    openBtn.style.display = "block";
+    closeBtn.style.display = "none";
+}
+function textVisibility(ev) {
+    ev.preventDefault()
+    passwordInput.type = "password";
+    closeBtn.style.display = "block";
+    openBtn.style.display = "none";
+}
+  
 function signup() {
     document.getElementById("modal").style.display = "block"
 }
@@ -54,6 +87,14 @@ let password = document.getElementById("password")
 
 function signuser(ev) {
     ev.preventDefault()
+    if (email.value == "" || password.value == "") {
+        alert("input your details as listed below")
+        return
+    }else if(!email.value.includes ("@gmail.com")){
+           alert("input a valid email address")
+           return;
+    }
+    else{
     firebase.auth().createUserWithEmailAndPassword(email.value, password.value)
         .then((userCredential) => {
             // Signed in 
@@ -69,6 +110,11 @@ function signuser(ev) {
             console.log(error);
             // ..
         });
+        document.getElementById("modal").style.display = "none"
+        setTimeout(() => {
+            document.getElementById("modal2").style.display = "block" 
+        }, 2000); 
+    }
 }
 let usernamearray = []
 let username = document.getElementById("username")
